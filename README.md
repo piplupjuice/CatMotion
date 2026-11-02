@@ -6,7 +6,13 @@ A neural network is shown a small picture of a cat and outputs the pen program t
 it. A simulated pen plotter then runs that program, and a calibrated camera measures where
 the ink actually landed.
 
-![the finished page, four cameras](media/cameras.jpg)
+![the goal picture, the reference ink, and the ink the network's own program laid down](media/goal_vs_prediction.png)
+
+Left is the `48 x 48` picture the network was given. Middle is the ink of the reference program
+and right is the ink of the network's own program, both paths run through the same rasteriser
+that made the goal, so the three panels are picture against picture. It is not a perfect cat:
+`19` of the `23` reference strokes come back and this one drawing scores ink F1 `0.729` against
+its goal. That number is the point of the project rather than a caveat under it.
 
 If you have two minutes rather than an afternoon, the cut to watch is listed first in
 [The films](#the-films).
@@ -337,7 +343,7 @@ moves.
 
 ## The camera and the gates
 
-![goal, reference ink, and the network's ink, side by side](media/goal_vs_prediction.png)
+![the finished page, four cameras](media/cameras.jpg)
 
 The renderer's claim is not "I drew ink where I wanted". It is "the ink in this image is where
 the simulated pen put it, and here is the error". Ink is a texture painted onto the page
@@ -482,7 +488,7 @@ The last full run, copied out of the harness's own output:
 
 ```
 LOGS    1775 numbers from checkpoint_select.json, demo_cut.json, denoise_trace.json, denoise_trace_gt.json, env.json, films.json, master_cut.json, policy_draw.json, policy_eval.json, train_log.json
-PROSE   234 numbers match a log, 0 do not
+PROSE   235 numbers match a log, 0 do not
 VERIFY PASS  8 self-tests, 1775 logged numbers, 3 docs audited
 ```
 
