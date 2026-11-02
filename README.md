@@ -45,7 +45,6 @@ ink is on the page, and then measures it.
 - [Project layout](#project-layout)
 - [The verification harness](#the-verification-harness)
 - [Limitations](#limitations)
-- [What I would do next](#what-i-would-do-next)
 - [Tech](#tech)
 
 ## What the system does
@@ -286,6 +285,28 @@ The reverse process, frame by frame, from the shipped checkpoint:
 That final path scores ADE `0.8448`, ink F1 `0.794`, chamfer `0.0328`, and finds all `23`
 strokes of the hero drawing.
 
+### What I used, and what I did not
+
+The model is a standard conditional DDPM. A reader should not have to open `src/model.py` to find
+out which standard, or which options I left off. Every figure in this block is in
+`out/train_log.json` or in the log named beside it.
+
+| the choice | what this build does | what this build does not do |
+| --- | --- | --- |
+| reverse steps | `50` per sample. `out/policy_eval.json`, `out/denoise_trace.json` and `out/policy_draw.json` each record `50` for the run they measured | a step-count ablation. `50` is a choice I made, not one I tuned, so I cannot say what more steps would buy |
+| sampler | ancestral DDPM: one full reverse pass per goal, `sigma_t` noise at every step except the last, where the posterior variance is zero by definition | DDIM or any other deterministic sampler, and classifier-free guidance. Neither is implemented, which is why no guidance scale and no DDIM comparison appear anywhere on this page |
+| what the network predicts | the noise that was added, by MSE, at a step drawn uniformly | the clean path directly, and a learned variance. Both are live options in the literature; neither is in this code |
+| how the goal gets in | FiLM on `concat(time_embedding, goal_embedding)` in every residual block, the `48 x 48` raster pushed through four strided conv blocks | a latent goal, a pretrained image encoder, or a language goal. The picture goes in raw, and the only command the policy gets is that picture |
+| the control loop | the sampler runs once per goal and the whole `512`-point program is handed to the machine | receding-horizon execution from a fresh observation, which is what Diffusion Policy as published does. See [Limitations](#limitations) |
+
+Training, for the same reason: `1600` drawings, `120` epochs, batch `64`, AdamW at learning rate
+`0.0003` on a `OneCycleLR` schedule, seed `7`. The step count is saved inside the checkpoint file
+and read back out of it, so the run that scored these numbers, the runs that filmed them and the
+weights that ship all sampled at the same count.
+
+The first four rows are the model and they are all ordinary. The fifth is the one that makes the
+title a stretch.
+
 ## The machine
 
 ![pen program: stroke order, lift travel, and the pen signal over 3643 frames](media/pen_program.png)
@@ -393,7 +414,7 @@ being shipped cannot quietly be three different sets of weights.
 ```
 pip install -r requirements.txt
 python src/verify.py --selftest
-python src/train.py --samples 1600 --epochs 120
+python src/train.py --samples 1600 --epochs 120 --steps 50   # --steps defaults to 100; the shipped run asked for 50
 python src/denoise_film.py --film
 python src/render.py --film
 python src/policy_film.py --goal hero --film
@@ -402,6 +423,10 @@ python src/demo_cut.py
 python src/film_audit.py
 python src/verify.py
 ```
+
+Copy the train line with the flag on it. `--steps` defaults to `100` in `src/train.py`, so the
+shorter command trains the same network but samples it at a different step count than every log
+in `out/` was written at, and the numbers on this page would not come back.
 
 `train.py` runs the selection stage itself: it trains, asks `ckpt_select.py` which set of weights
 actually draws, writes `ckpt/policy_ship.pt`, and reports test numbers on that file rather than
@@ -482,7 +507,7 @@ The last full run, copied out of the harness's own output:
 
 ```
 LOGS    1775 numbers from checkpoint_select.json, demo_cut.json, denoise_trace.json, denoise_trace_gt.json, env.json, films.json, master_cut.json, policy_draw.json, policy_eval.json, train_log.json
-PROSE   235 numbers match a log, 0 do not
+PROSE   238 numbers match a log, 0 do not
 VERIFY PASS  8 self-tests, 1775 logged numbers, 3 docs audited
 ```
 
@@ -521,8 +546,8 @@ disk means a run died, and `film_audit.py` refuses to measure one.
 - **No external model comparison.** There is no ACT, autoregressive transformer or ILPO baseline.
   The two baselines that ship, mean path and static path, exist to test the specific claim being
   made: that the goal picture is doing the work.
-- **Not run:** classifier-free guidance, DDIM, and a step-count ablation. These are the next
-  experiments, not results.
+- **Not run:** classifier-free guidance, DDIM, and a step-count ablation. There is no number for
+  any of them on this page, because there is no run behind one.
 - **The gantry shadow is imperfect.** MuJoCo's depth-map pass fills at `2048` on this GL backend;
   a larger map returns a black page on this driver. The shadow therefore keeps a stepped edge
   where the macro camera is close enough to resolve it. It is gated and measured, and the film
@@ -562,12 +587,6 @@ then the same three gates - held-out marker registration, per-stroke registratio
 run on a photograph of a page that a machine actually drew. Until that exists, this project
 demonstrates the whole chain end to end **in simulation**, and every number in this README should be
 read as a simulated measurement rather than a hardware one.
-
-## What I would do next
-
-Receding-horizon execution, so the name is earned. A step-count ablation at `20`, `50` and `100`
-sampling steps. An ACT or autoregressive baseline on the same data. Real pen-on-paper contact
-with a measured ink width instead of a simulated one.
 
 ## Tech
 
