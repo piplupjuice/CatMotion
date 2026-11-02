@@ -165,37 +165,31 @@ four things I had to get right, in the order I built them.
 ```mermaid
 flowchart TD
     subgraph S1["1 - make the data"]
-        A1["art.py: the cat as named Bezier strokes"]
-        A2["art.py: jitter the control points, one cat in many styles"]
-        A3["data.py: each style becomes a 48 x 48 goal picture and the 512-point path that lays it"]
-        A4["train.py: split by style seed, so a test drawing never existed in training"]
-        A1 --> A2 --> A3 --> A4
+        direction LR
+        A1["art.py<br/>the cat as named Bezier strokes<br/>jitter them: one cat, many styles"] --> A2["data.py<br/>one 48 x 48 goal picture<br/>and the 512-point path that lays it"]
+        A2 --> A3["train.py<br/>split by style seed, so a test<br/>drawing never existed in training"]
     end
+
     subgraph S2["2 - learn the policy"]
-        B1["model.py: 1D U-Net over the points, FiLM on the step and the goal picture"]
-        B2["train.py: add noise, ask the network for the noise, MSE, 120 epochs"]
-        B3["ckpt_select.py: sample every candidate checkpoint on the same goals"]
-        B4["rank the drawings, not the loss, and ship that one"]
-        B1 --> B2 --> B3 --> B4
+        direction LR
+        B1["model.py<br/>1D U-Net over the point axis<br/>FiLM on the step and the goal"] --> B2["train.py<br/>add noise, ask for the noise<br/>MSE, 120 epochs"]
+        B2 --> B3["ckpt_select.py<br/>sample every checkpoint on the same goals<br/>ship the one that draws best, not the lowest loss"]
     end
+
     subgraph S3["3 - run the program on a machine"]
-        C1["model.py: ancestral DDPM sampler, noise in, one 512 x 3 path out"]
-        C2["planner.py: resample by arc length, order the strokes, 2-opt, pen ramps and settles"]
-        C3["robot.py: MuJoCo gantry, 33 substeps per commanded frame, contact from mj_contactForce"]
-        C4["render.py: camera mapped from markers, ink painted onto the page as a texture"]
-        C1 --> C2 --> C3 --> C4
+        direction LR
+        C1["model.py<br/>ancestral DDPM sampler<br/>noise in, one path out"] --> C2["planner.py<br/>arc-length resample, stroke order,<br/>2-opt, pen ramps and settles"]
+        C2 --> C3["robot.py<br/>MuJoCo gantry, 33 substeps<br/>per frame, contact from mj_contactForce"]
+        C3 --> C4["render.py<br/>camera mapped from markers<br/>ink painted onto the page"]
     end
+
     subgraph S4["4 - measure it, then prove the paperwork"]
-        D1["metrics.py: ADE, chamfer, ink F1, pen agreement, stroke count, registration"]
-        D2["train.py: the held-out test table, written to out/policy_eval.json"]
-        D3["preview.py, denoise_film.py, policy_film.py: stills and films, only past the gates"]
-        D4["master_cut.py, demo_cut.py: the footage assembled into one cut"]
-        D5["film_audit.py: decode the delivered mp4 files and count their frames"]
-        D6["verify.py: run every self-test, then check every number in this README against a log"]
-        D1 --> D2 --> D3 --> D4 --> D5 --> D6
+        direction LR
+        D1["metrics.py and train.py<br/>ADE, chamfer, ink F1, pen agreement<br/>stroke count, registration, held-out table"] --> D2["preview.py, denoise_film.py, policy_film.py<br/>master_cut.py, demo_cut.py<br/>stills and films, and only past the gates"]
+        D2 --> D3["film_audit.py and verify.py<br/>count the frames in the delivered mp4s,<br/>then match every number here to a log"]
     end
+
     S1 --> S2 --> S3 --> S4
-    D1 -.->|"a failed gate stops the film from rendering"| D3
 ```
 
 One thing this diagram leaves out on purpose. There is no feedback arrow from the camera back to
