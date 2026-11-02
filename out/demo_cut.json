@@ -1,0 +1,182 @@
+{
+ "source": "existing films and stills, nothing re-rendered",
+ "fps": 30.0,
+ "resolution": [
+  1920,
+  1080
+ ],
+ "segments": [
+  {
+   "kind": "card",
+   "label": "01 title",
+   "frames": 90,
+   "seconds": 3.0
+  },
+  {
+   "kind": "card",
+   "label": "02 finished page",
+   "frames": 90,
+   "seconds": 3.0
+  },
+  {
+   "kind": "still",
+   "label": "02 finished page",
+   "frames": 150,
+   "seconds": 5.0
+  },
+  {
+   "kind": "card",
+   "label": "03 the goal",
+   "frames": 90,
+   "seconds": 3.0
+  },
+  {
+   "kind": "still",
+   "label": "03 the goal",
+   "frames": 150,
+   "seconds": 5.0
+  },
+  {
+   "kind": "card",
+   "label": "04 reverse diffusion",
+   "frames": 150,
+   "seconds": 5.0
+  },
+  {
+   "kind": "film",
+   "label": "04 reverse diffusion",
+   "frames": 293,
+   "seconds": 9.77
+  },
+  {
+   "kind": "card",
+   "label": "05 the path",
+   "frames": 90,
+   "seconds": 3.0
+  },
+  {
+   "kind": "still",
+   "label": "05 the path scored",
+   "frames": 150,
+   "seconds": 5.0
+  },
+  {
+   "kind": "card",
+   "label": "06 the machine",
+   "frames": 90,
+   "seconds": 3.0
+  },
+  {
+   "kind": "film",
+   "label": "06 the machine",
+   "frames": 1454,
+   "seconds": 48.47
+  },
+  {
+   "kind": "card",
+   "label": "07 the policy's program",
+   "frames": 150,
+   "seconds": 5.0
+  },
+  {
+   "kind": "film",
+   "label": "07 the policy's program",
+   "frames": 1276,
+   "seconds": 42.53
+  },
+  {
+   "kind": "card",
+   "label": "08 evaluation",
+   "frames": 150,
+   "seconds": 5.0
+  },
+  {
+   "kind": "card",
+   "label": "09 checkpoint",
+   "frames": 150,
+   "seconds": 5.0
+  },
+  {
+   "kind": "card",
+   "label": "10 limitations",
+   "frames": 150,
+   "seconds": 5.0
+  },
+  {
+   "kind": "card",
+   "label": "11 closing",
+   "frames": 150,
+   "seconds": 5.0
+  }
+ ],
+ "cards": {
+  "01 title": [
+   "CATMOTION",
+   "a goal-conditioned diffusion policy for robotic drawing,",
+   "a simulated pen plotter, and the ink it actually laid down"
+  ],
+  "02 finished page": [
+   "THE FINISHED PAGE",
+   "four cameras, one sheet, ink painted onto the paper"
+  ],
+  "03 the goal": [
+   "THE ONLY INPUT",
+   "a 48 x 48 picture of a cat",
+   "no stroke names, no oracle ordering, no target path"
+  ],
+  "04 reverse diffusion": [
+   "THE MODEL",
+   "one picture in, one 512-point pen program out",
+   "ink F1 0.395 to 0.794, ink on the page 268.2 units to 15.25"
+  ],
+  "05 the path": [
+   "512 POINTS, IN ORDER",
+   "x, y and a pen carried at plus or minus one,",
+   "so one noise scale fits all three channels"
+  ],
+  "05 the path scored": [
+   "THE NETWORK'S OWN PATH",
+   "rasterised back to a picture and scored against its goal",
+   "ink F1 0.729, 19 of 23 strokes, pen agreement 0.748"
+  ],
+  "06 the machine": [
+   "THE MACHINE",
+   "a MuJoCo gantry plotter, 33 substeps per 60 Hz frame,",
+   "pen contact read from mj_contactForce"
+  ],
+  "07 the policy's program": [
+   "THE NETWORK DREW THIS ONE",
+   "the same planner, the same machine, the same camera gates",
+   "worst stroke registration 4.38 px, centroid 6.3 px"
+  ],
+  "08 evaluation": [
+   "HELD-OUT TEST, 32 GOALS",
+   "ink F1 0.722   chamfer 0.034   ADE 0.691",
+   "20.6 strokes of 22.0   pen agreement 0.675"
+  ],
+  "09 checkpoint": [
+   "THE CHECKPOINT PROBLEM",
+   "epoch 10: val loss 0.091, ink F1 0.310, 4.9 strokes",
+   "epoch 120: val loss 0.229, ink F1 0.732, 20.2 strokes",
+   "the shipping choice was made on the drawing, not the loss"
+  ],
+  "10 limitations": [
+   "WHAT THIS IS NOT",
+   "no closed loop: the program is sampled once and run open loop",
+   "no physical plotter: dynamics, contact and camera are simulated",
+   "one cat in many styles, and no cross-category claim"
+  ],
+  "11 closing": [
+   "EVERY NUMBER ON THIS FILM",
+   "is in a log under out/, and src/verify.py fails the build",
+   "if the prose quotes a figure that is not in one"
+  ]
+ },
+ "total_frames": 4823,
+ "seconds": 160.77,
+ "mp4": "design_out/cat_demo.mp4",
+ "delivery": "design_out/cat_demo_delivery.mp4",
+ "master_bytes": 1431830562,
+ "delivery_bytes": 135845880,
+ "transcode_sec": 59.6
+}

@@ -1,0 +1,6 @@
+PART   PART 1   THE MODEL  293 frames  9.8 s
+PART   PART 2   THE MACHINE  1454 frames  48.5 s
+PART   PART 3   BOTH  1276 frames  42.5 s
+MASTER C:\Users\nehad\Desktop\qwen's work\design_out\cat_master.mp4  3158 frames  105.3 s  3 parts
+built in 197.5 s
+EXIT 0

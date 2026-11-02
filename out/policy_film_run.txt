@@ -1,0 +1,26 @@
+POLICY  policy_ship.pt  epoch 120  val loss 0.2289  steps 50  torch 2.15.0+cpu cpu
+SAMPLE  50 DDPM steps in 1.0 s  path 512x3  pen down 77%  reached 0.949 u
+SCORE   ade 0.5144  f1 0.729  precision 0.779  recall 0.685  chamfer 0.0318
+        strokes 19/23  off-target 0.0229  stray 0.080  pen agreement 0.748  ink 12.69 u
+SHEET   C:\Users\nehad\Desktop\qwen's work\design_out\policy_sheet_hero.png  ink pixels goal 0.2448 reference 0.2405 policy 0.2167
+PLAN    19 strokes 3149 frames  ink 12.64 travel 3.93 (24% lift)
+ROBOT   ink tracking rms 0.00027 max 0.0020 units  contact 0.577 N
+         shadow covers 11.2% of the paper at 22 levels dark, and 0% of it is where the last shadow was
+CALIBRATE  472 texels/unit  top-down el=-90 az=+90  scale 1.061 of sheet
+         held-out marker registration 0.04 px worst of 5
+         paper median 179, clipped 0.000
+RENDER  worst stroke 4.38 px  centroid 6.3 px over 35194 ink px
+        19 strokes registered, 0 too short to lay a measurable dot (0.0000 u)
+  opening 100
+  opening 200
+  opening 300
+  contact 400
+  contact 500
+  contact 600
+  contact 700
+  sweep 800
+  sweep 900
+  finish 1000
+  finish 1100
+  reveal 1200
+FILM C:\Users\nehad\Desktop\qwen's work\design_out\policy_film_hero.mp4  1276 frames  43 s  rendered in 2269.4 s

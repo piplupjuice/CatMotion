@@ -1,0 +1,9 @@
+DATA  train 48  val 32  path 512x3  goal 48x48  device cpu
+        val ade 350.2921 f1 0.079 strokes 89.8 (38s sampling)
+EPOCH   1/2  train 1.0071  val 0.8353  5s
+        val ade 335.9850 f1 0.017 strokes 86.2 (27s sampling)
+EPOCH   2/2  train 0.8083  val 0.7812  4s
+TEST  4 goals  policy ade 338.3795 f1 0.089 strokes 83.5/22.0  (33s)
+      mean-path baseline   ade 0.5300 f1 0.179
+      static-path baseline ade 0.7125 f1 0.536
+TRAIN DONE  120s  torch 2.15.0+cpu  device cpu

@@ -1,0 +1,10 @@
+# Measured on the machine that produced every number in REPORT.md.
+# `python src/verify.py` re-reads these from the interpreter and writes them to
+# out/env.json, so this file is a quote of that measurement, not a wish list.
+numpy==2.5.4
+torch==2.15.0+cpu
+mujoco==3.17.0
+pillow==13.0.0
+imageio==2.38.1
+imageio-ffmpeg==0.7.0
+matplotlib==3.11.2

@@ -1,0 +1,6 @@
+DENOISE  reference trace (no policy)  101 states  0.0 s on cpu  alpha_bar 0.0000 -> 0.9988
+         ink F1 0.405 (noise) -> 0.991 (final)   pen down 53% -> 77%
+         ink 241.3 u (noise) -> 17.57 u (final)   goal vs blank goal path shift n/a (reference trace)
+         final path ade 0.0000 f1 0.991 chamfer 0.0000 strokes 23/23
+         strip C:\Users\nehad\Desktop\qwen's work\design_out\denoise_strip_gt.png at traced states [0, 25, 50, 75, 100]
+FILM C:\Users\nehad\Desktop\qwen's work\design_out\cat_denoise_gt.mp4  444 frames  14.8 s at 30 fps  built in 998.3 s

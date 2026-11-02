@@ -1,0 +1,36 @@
+{
+ "ckpt": "policy_ship.pt",
+ "ckpt_epoch": 120,
+ "goal": "hero",
+ "path": "policy",
+ "goal_seed": 0,
+ "sample_seed": 0,
+ "device": "cpu",
+ "ddpm_steps": 50,
+ "path_reach_units": 0.9491782188415527,
+ "metrics": {
+  "ade": 0.5144499640998647,
+  "fde": 0.1048980497905534,
+  "chamfer": 0.03180316734792543,
+  "precision": 0.778672032193159,
+  "recall": 0.6849557522123894,
+  "f1": 0.728813559322034,
+  "pen": 0.748046875,
+  "strokes": 19.0,
+  "strokes_ref": 23.0,
+  "off_target": 0.022877148134271063,
+  "stray_fraction": 0.08018867924528301,
+  "ink_length": 12.6853436188121,
+  "xy_max": 0.9491782188415527
+ },
+ "plan": {
+  "strokes": 19,
+  "frames": 3149,
+  "ink_length": 12.635755012795366,
+  "travel_length": 3.927373385110469,
+  "travel_fraction": 0.23711543440108981
+ },
+ "robot_ink_err_rms": 0.0002664217518771578,
+ "registration_worst_px": 4.380506542104161,
+ "centroid_px": 6.29411951223463
+}

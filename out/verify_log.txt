@@ -1,0 +1,41 @@
+GEOMETRY PASS  waypoints_hit=True spline=1597 gap_mean=0.0200 gap_std=0.00059
+
+ART PASS 23 strokes, len 14.56 units, xy in [-0.94, 0.94]
+         head, ear_L, ear_R, earin_L, earin_R, eye_L, eye_R, pup_L, pup_R, nose, mouth, whisk_L0, whisk_R0, whisk_L1, whisk_R1, whisk_L2, whisk_R2, body, leg_L, leg_R, paw_L, paw_R, tail
+
+PLANNER PASS 23 strokes 3643 frames  ink 14.57 travel 4.52 (24% lift)
+        order: head -> whisk_R0 -> whisk_R1 -> tail -> whisk_R2 -> mouth -> whisk_L1 -> whisk_L2 -> body -> leg_R -> paw_R -> paw_L -> leg_L -> nose -> whisk_L0 -> eye_L -> pup_L -> earin_L -> ear_L -> earin_R -> ear_R -> eye_R -> pup_R
+        spacing 0.0060  gap mean 0.0061 std 0.0001 max 0.0063
+        strokes/plan 23/23  lift cost rotation-free 4.522381 (greedy 4.7725)
+
+DATA PASS  goal 48^2  path 512 x 3  ink 14.28 u  strokes 21  step 0.0361 u
+         goal raster line width 1.6 px
+         path->raster round trip F1 0.989 (family worst 0.982, median 0.990)
+         family styles 12, strokes below path resolution 0
+         parallel build byte-identical to serial over 6 seeds
+
+MODEL PASS  params 3.69 M  in (2, 512, 3) -> out (2, 512, 3)  loss 1.1074
+        steps 20  alpha-bar[0] 0.9894 [-1] 0.0000  goal-conditioning shift 30.8516
+        levels 96 128 192  conditioning 256  pen sign round trip 0.000000
+
+METRICS PASS  self ade 0.000000 f1 0.989 strokes 21 | jitter ade 0.0245 f1 0.868
+        empty path recall 0.000 strokes 0  mean-path f1 0.924 ade 0.0123
+        off-target self 0.0000  stray 0.000  ink 13.45 u
+        chamfer subsample 256 points per side
+        report means ade=0.012, fde=0.012, chamfer=0.011, precision=0.914, recall=0.941, f1=0.927, pen=1.000, off_target=0.008, stray_fraction=0.001, strokes=21.000, strokes_ref=21.000, xy_max=0.959
+
+ROBOT PASS  T=3643  ink err rms 0.00023 max 0.00141 units  normal force 0.575 N
+        flight err max 0.00242  lift 6.00 mm, press to 6.40 mm, tip r 0.800 mm
+        physics dt 0.0005 s  control frame 0.0167 s (60 Hz)  33 substeps
+
+         shadow covers 11.2% of the paper at 22 levels dark, and 0% of it is where the last shadow was
+CALIBRATE  472 texels/unit  top-down el=-90 az=+90  scale 1.061 of sheet (gate 0.80 to 1.25)
+         held-out marker registration 0.04 px worst of 5
+         paper median 179, clipped 0.000
+REGISTRATION  23 strokes, worst 1.22 px, median 0.54 px (gate 6.0 px)
+              0 strokes too short to register (0.0000 u of pen travel)
+CAMERAS   top 2753 ink px  hero 2976 ink px  macro 4552 ink px  side 2782 ink px
+SHADOW    worst 5% of the paper loses 0.148 of its light (512479 px, hero and side)  (gate 0.30, depth map 2048)
+RENDER PASS  whole-page centroid 0.5 px over 41193 ink px  area 0.2444 u^2 (program 0.2331 u^2, gate 12.0 px)
+stills C:\Users\nehad\Desktop\pikabot\design_out\render_stills_mid.png
+stills C:\Users\nehad\Desktop\pikabot\design_out\render_stills_done.png

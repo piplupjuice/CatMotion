@@ -1,0 +1,7 @@
+DENOISE  policy sample  51 states  1.1 s on cpu  alpha_bar 0.0000 -> 0.9972
+         ink F1 0.395 (noise) -> 0.794 (final)   pen down 55% -> 79%
+         ink 268.2 u (noise) -> 15.25 u (final)   goal vs blank goal path shift 0.462
+         final path ade 0.8448 f1 0.794 chamfer 0.0328 strokes 23/23
+         strip C:\Users\nehad\Desktop\qwen's work\design_out\denoise_strip.png at traced states [0, 12, 25, 38, 50]
+FILM C:\Users\nehad\Desktop\qwen's work\design_out\cat_denoise.mp4  293 frames  9.8 s at 30 fps  built in 588.5 s
+DONE_BOTH

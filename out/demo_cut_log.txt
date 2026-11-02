@@ -1,0 +1,19 @@
+SEG    card   01 title                    90 frames     3.0 s
+SEG    card   02 finished page            90 frames     3.0 s
+SEG    still  02 finished page           150 frames     5.0 s
+SEG    card   03 the goal                 90 frames     3.0 s
+SEG    still  03 the goal                150 frames     5.0 s
+SEG    card   04 reverse diffusion       150 frames     5.0 s
+SEG    film   04 reverse diffusion       293 frames     9.8 s
+SEG    card   05 the path                 90 frames     3.0 s
+SEG    still  05 the path scored         150 frames     5.0 s
+SEG    card   06 the machine              90 frames     3.0 s
+SEG    film   06 the machine            1454 frames    48.5 s
+SEG    card   07 the policy's program    150 frames     5.0 s
+SEG    film   07 the policy's program   1276 frames    42.5 s
+SEG    card   08 evaluation              150 frames     5.0 s
+SEG    card   09 checkpoint              150 frames     5.0 s
+SEG    card   10 limitations             150 frames     5.0 s
+SEG    card   11 closing                 150 frames     5.0 s
+DEMO  C:\Users\nehad\Desktop\pikabot\design_out\cat_demo.mp4  4823 frames  160.8 s  17 segments
+built in 272.4 s

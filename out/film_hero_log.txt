@@ -1,0 +1,11 @@
+         shadow covers 11.2% of the paper at 22 levels dark, and 0% of it is where the last shadow was
+CALIBRATE  472 texels/unit  top-down el=-90 az=+90  scale 1.061 of sheet
+         held-out marker registration 0.04 px worst of 5
+         paper median 179, clipped 0.000
+REGISTRATION  23 strokes, worst 1.22 px, median 0.54 px
+CAMERAS   top 2753 ink px  hero 2976 ink px  macro 4552 ink px  side 2782 ink px
+SHADOW    worst 5% of the paper loses 0.148 of its light (512479 px, hero and side)
+RENDER PASS  whole-page centroid 0.5 px over 41193 ink px  area 0.2444 u^2 (program 0.2331 u^2)
+stills C:\Users\nehad\Desktop\qwen's work\design_out\render_stills_mid.png
+stills C:\Users\nehad\Desktop\qwen's work\design_out\render_stills_done.png
+  opening 100

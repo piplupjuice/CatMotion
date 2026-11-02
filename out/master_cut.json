@@ -1,0 +1,35 @@
+{
+ "parts": [
+  {
+   "part": "PART 1   THE MODEL",
+   "file": "cat_denoise.mp4",
+   "frames": 293,
+   "seconds": 9.77
+  },
+  {
+   "part": "PART 2   THE MACHINE",
+   "file": "cat_film.mp4",
+   "frames": 1454,
+   "seconds": 48.47
+  },
+  {
+   "part": "PART 3   BOTH",
+   "file": "policy_film_hero.mp4",
+   "frames": 1276,
+   "seconds": 42.53
+  }
+ ],
+ "card_frames": 45,
+ "total_frames": 3158,
+ "seconds": 105.27,
+ "resolution": [
+  1920,
+  1080
+ ],
+ "fps": 30.0,
+ "mp4": "design_out/cat_master.mp4",
+ "delivery": "design_out/cat_master_delivery.mp4",
+ "master_bytes": 1430193483,
+ "delivery_bytes": 134911513,
+ "transcode_sec": 62.5
+}

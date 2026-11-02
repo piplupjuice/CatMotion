@@ -1,0 +1,3 @@
+train 1600 in 224s
+val 200 in 27s
+test 200 in 26s
