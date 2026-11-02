@@ -14,8 +14,9 @@ that made the goal, so the three panels are picture against picture. It is not a
 `19` of the `23` reference strokes come back and this one drawing scores ink F1 `0.729` against
 its goal. That number is the point of the project rather than a caveat under it.
 
-If you have two minutes rather than an afternoon, the cut to watch is listed first in
-[The films](#the-films).
+If you have two minutes rather than an afternoon, watch the cut:
+**https://youtu.be/yoJLXxGYw0A**. It runs `160.77` seconds and it is the first row of
+[The films](#the-films), which is also what `src/demo_cut.py` builds.
 
 This is a personal engineering project. I taught myself diffusion policy and robot learning,
 and I built this to find out whether I could take one all the way through: model, planner,
@@ -115,7 +116,8 @@ report it rather than drop it.
 
 ## The films
 
-Four cameras, one machine, one network. All `1080p` at `30 fps`.
+Four cameras, one machine, one network. All `1080p` at `30 fps`. The first row is up on YouTube:
+https://youtu.be/yoJLXxGYw0A. That is the one to watch; the rest are the footage it was cut from.
 
 | file | frames | seconds | size | what it shows |
 | --- | --- | --- | --- | --- |
@@ -150,11 +152,12 @@ The order it tells the story in, with the timestamps `src/demo_cut.py` wrote to
 | `2:35.8` to `2:40.8` | where every number on the film lives |
 
 The films are not in git. GitHub rejects files over `100` MB and the smallest sendable cut here is
-`134.9` MB, so the repository carries the stills and the frame counts, and the videos stay on the
-machine that rendered them. `src/film_audit.py` measures the delivered containers and writes
-`out/films.json`, so every frame count above is a property of a file rather than something the
-encoder remembered. Each delivery copy audits at the same frame count as its archival parent,
-which is the check that the smaller file is not a shorter one.
+`134.9` MB, so the repository carries the stills and the frame counts, the demo cut is up on
+YouTube, and the rest of the footage stays on the machine that rendered it. `src/film_audit.py`
+measures the delivered containers and writes `out/films.json`, so every frame count above is a
+property of a file rather than something the encoder remembered. Each delivery copy audits at the
+same frame count as its archival parent, which is the check that the smaller file is not a shorter
+one.
 
 ## Architecture
 
@@ -509,7 +512,7 @@ The last full run, copied out of the harness's own output:
 
 ```
 LOGS    1775 numbers from checkpoint_select.json, demo_cut.json, denoise_trace.json, denoise_trace_gt.json, env.json, films.json, master_cut.json, policy_draw.json, policy_eval.json, train_log.json
-PROSE   238 numbers match a log, 0 do not
+PROSE   239 numbers match a log, 0 do not
 VERIFY PASS  8 self-tests, 1775 logged numbers, 3 docs audited
 ```
 
