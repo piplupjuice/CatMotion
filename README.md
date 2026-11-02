@@ -249,20 +249,22 @@ trained on. `alpha` is clamped at `1e-3`, because the last step of a cosine sche
 turns `1/sqrt(alpha)` into a six-times amplifier on whatever the network has not learned.
 
 ```mermaid
-flowchart LR
-    subgraph FORWARD[forward process, training only]
-        X0[clean path x0] -->|add eps, alpha_bar t| XT[noisy path x_t]
+flowchart TD
+    subgraph F["forward process - training only"]
+        direction LR
+        F1["a real drawing<br/>the path x0"] --> F2["add noise to it<br/>now it is x_t"]
+        F2 --> F3["the network is shown x_t,<br/>the step t and the goal"]
+        F3 --> F4["it hands back the noise<br/>it thinks went in<br/>scored by MSE"]
     end
-    XT --> NET[1D U-Net sees x_t, t and the goal]
-    NET --> EPS[predicted noise]
-    EPS --> L[MSE against the eps that was added]
-    subgraph REVERSE[reverse process, sampling]
-        Z[pure noise x_T] --> S[denoise one step]
-        S --> P[subtract predicted eps, divide by sqrt alpha]
-        P --> Q[add sigma t times z, except at the last step]
-        Q --> S
-        S --> OUT[path 512x3]
+
+    subgraph R["reverse process - sampling"]
+        direction LR
+        R1["pure noise<br/>x_T"] --> R2["the network guesses<br/>the noise in it"]
+        R2 --> R3["subtract that guess<br/>and step one notch cleaner"]
+        R3 -->|"50 steps"| R4["the pen program<br/>512 x 3"]
     end
+
+    F -.->|"one network,<br/>trained one way, used the other"| R
 ```
 
 The two halves share one network. Training never sees a sampled path and sampling never computes
