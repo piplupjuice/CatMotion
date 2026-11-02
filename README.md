@@ -18,10 +18,9 @@ If you have two minutes rather than an afternoon, watch the cut:
 **https://youtu.be/yoJLXxGYw0A**. It runs `160.77` seconds and it is the first row of
 [The films](#the-films), which is also what `src/demo_cut.py` builds.
 
-This is a personal engineering project. I taught myself diffusion policy and robot learning,
+This is a personal  project. I taught myself diffusion policy and robot learning,
 and I built this to find out whether I could take one all the way through: model, planner,
-simulated machine, camera, metrics, films. It is not a research paper and it does not claim a
-novel method.
+simulated machine, camera, metrics, films. 
 
 The part that matters to me is that it does not stop at the trajectory. Most "diffusion policy"
 demos end when the network outputs one. Everything interesting happens after that: the pen that
