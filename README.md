@@ -18,9 +18,9 @@ If you have two minutes rather than an afternoon, watch the cut:
 **https://youtu.be/yoJLXxGYw0A**. It runs `160.77` seconds and it is the first row of
 [The films](#the-films), which is also what `src/demo_cut.py` builds.
 
-This is a personal  project. I taught myself diffusion policy and robot learning,
+This is a personal project. I taught myself diffusion policy and robot learning,
 and I built this to find out whether I could take one all the way through: model, planner,
-simulated machine, camera, metrics, films. 
+simulated machine, camera, metrics, films.
 
 The part that matters to me is that it does not stop at the trajectory. Most "diffusion policy"
 demos end when the network outputs one. Everything interesting happens after that: the pen that
@@ -128,6 +128,9 @@ https://youtu.be/yoJLXxGYw0A. That is the one to watch; the rest are the footage
 | `design_out/cat_film.mp4` | `1454` | `48.47` | `764.3` MB | the reference artwork drawn by the gantry |
 | `design_out/policy_film_hero.mp4` | `1276` | `42.53` | `668.8` MB | the network's program, drawn by that same machine |
 | `design_out/cat_denoise_gt.mp4` | `444` | `14.8` | `40.1` MB | the forward process on a reference path, needs no trained network |
+
+`out/films.json` records one file more than this table: a superseded `720p` draft of the denoise
+film. The auditor lists whatever is on the disk, and the table lists only what the final cut uses.
 
 The demo cut re-edits footage that already exists. Nothing in it is re-rendered: the moving
 frames come from the three films above, the stills are files the pipeline already wrote, and every
